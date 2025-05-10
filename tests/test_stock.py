@@ -1,4 +1,15 @@
+import sys
+import os
+
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
 from services.stock_service import list_colors_by_model, update_quantity
+
+
+
+
 
 def display_colors(id_models):
     colors = list_colors_by_model(id_models)
@@ -13,7 +24,7 @@ def display_colors(id_models):
 def get_current_quantity(id_colors, colors):
     for color in colors:
         if color[0] == id_colors:
-            return color[0] if color[2] is not None else 0
+            return color[2] if color[2] is not None else 0
     
     return 0
 
