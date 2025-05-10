@@ -20,13 +20,13 @@ def get_current_quantity(id_colors, colors):
 def main():
     id_models = int(input("Digite o ID do modelo (1 a 4): "))
 
-    color = display_colors(id_models)
+    colors = display_colors(id_models)
 
     id_colors = int(input("\nDigite o ID da cor que deseja movimentar: "))
     operation = input("Digite 'e' para entrada ou 's' para saída: ")
 
     value = int(input("Quantidade a movimentar: "))
-    actualy = get_current_quantity(id_colors, color)
+    actualy = get_current_quantity(id_colors, colors)
 
     if operation == 'e':
         new = actualy + value
