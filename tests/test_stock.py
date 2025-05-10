@@ -50,7 +50,7 @@ def main():
         print("Operação inválida.")
         return
     
-    update_quantity(id_colors, new)
+    update_quantity(new, id_colors)
     print("\nEstoque atualizado com sucesso!")
 
     display_colors(id_models)
