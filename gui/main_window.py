@@ -6,7 +6,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import customtkinter as ctk
 
 
-
 def create_main_window():
     ctk.set_appearance_mode("System")  # Opcional: "Light", "Dark", "System"
     ctk.set_default_color_theme("blue")  # Pode ser "green", "dark-blue", etc.
@@ -14,10 +13,6 @@ def create_main_window():
     window = ctk.CTk()
     window.title("Abas com CustomTkinter")
     window.geometry("1200x800")
-    window.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
-    window.grid_rowconfigure(0, weight=1)
-    window.grid_columnconfigure(0, weight=1)
-
 
     # Criar o Tabview (as abas)
     tabview = ctk.CTkTabview(master=window)   
@@ -55,13 +50,9 @@ def create_main_window():
 
 
     #Konica layout
-    circle_canvas = ctk.CTkCanvas(window, width=60, height=60, bg="white", highlightthickness=0)
-    circle_canvas.grid(row=0, column=0, padx=10)
-    circle_canvas.create_oval(10, 10, 50, 50, fill="#3B82F6") 
-
     stockValueKonica = ctk.CTkLabel(tabKonica, text="00", font=ctk.CTkFont(size=128))
     stockValueKonica.pack(pady=10)
-
+    
     window.mainloop()
 
 
