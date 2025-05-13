@@ -4,6 +4,8 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import customtkinter as ctk
+from konica_cian import konica_cian_layout
+from konica_yellow import konica_yellow_layout
 
 
 def create_main_window():
@@ -21,11 +23,14 @@ def create_main_window():
 
     # Tab Konica
     tab_konica = tabview.add("Konica")
-    tab_konica.grid_rowconfigure(0, weight=1)
+    tab_konica.grid_rowconfigure((0, 1), weight=0)
     tab_konica.grid_columnconfigure(0, weight=1)
-    center_frame_konica = ctk.CTkFrame(tab_konica, fg_color='transparent')
-    center_frame_konica.grid(row=0, column=0, sticky="")
+    center_frame_konica_cian = ctk.CTkFrame(tab_konica, fg_color='transparent')
+    center_frame_konica_cian.grid(row=0, column=0, sticky="")
+    center_frame_konica_yellow = ctk.CTkFrame(tab_konica, fg_color='transparent')
+    center_frame_konica_yellow.grid(row=1, column=0, sticky="")
 
+    # Tab DX
     tab_dx = tabview.add("DX")
     tab_dx.grid_rowconfigure(0, weight=1)
     tab_dx.grid_columnconfigure(0, weight=1)
@@ -38,28 +43,13 @@ def create_main_window():
         tab_button.configure(font=("Arial", 30))
 
 
-    #Konica layout
-    circle_canvas = ctk.CTkCanvas(center_frame_konica, width=60, height=60, bg="white", highlightthickness=0)
-    circle_canvas.grid(row=0, column=0, padx=10)
-    circle_canvas.create_oval(10, 10, 50, 50, fill="#3B82F6")
+    # === Konica ==
 
-    label_konica_cian = ctk.CTkLabel(center_frame_konica, text="00", font=ctk.CTkFont(size=100, weight="bold"))
-    label_konica_cian.grid(row=0, column=1, padx=30)
+    #Cian
+    konica_cian_layout(center_frame_konica_cian)
 
-    button_frame_konica = ctk.CTkFrame(center_frame_konica, fg_color="transparent")
-    button_frame_konica.grid(row=0, column=2, padx=10, sticky="e")    
-
-    btn1 = ctk.CTkButton(button_frame_konica, text="Entrada 1")
-    btn1.grid(row=0, column=0, padx=5, pady=5)
-
-    btn2 = ctk.CTkButton(button_frame_konica, text="Saída 1")
-    btn2.grid(row=0, column=1, padx=5, pady=5)
-
-    btn3 = ctk.CTkButton(button_frame_konica, text="Entrada 2")
-    btn3.grid(row=1, column=0, padx=5, pady=5)
-
-    btn4 = ctk.CTkButton(button_frame_konica, text="Saída 2")
-    btn4.grid(row=1, column=1, padx=5, pady=5)
+    #Yellow
+    konica_yellow_layout(center_frame_konica_yellow)
     
     app.mainloop()
 
