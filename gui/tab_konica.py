@@ -1,5 +1,6 @@
 
 import customtkinter as ctk
+from gui_functions import ButtonAction
 
 
 font_label_stock = 90
@@ -100,14 +101,16 @@ def konica_yellow_layout(center_frame_konica_yellow):
     quantity_entry = ctk.CTkEntry(button_frame_konica_yellow, placeholder_text="0", font=ctk.CTkFont(size=18), justify="center")
     quantity_entry.grid(row=0, column=0,columnspan=2, padx=10, pady=(5, 10), sticky="ew")
 
-    btn1 = ctk.CTkButton(button_frame_konica_yellow, text="Entrada 1")
-    btn1.grid(row=1, column=0, padx=5, pady=5)
+    button_action = ButtonAction(entry=quantity_entry)
 
-    btn2 = ctk.CTkButton(button_frame_konica_yellow, text="Saída 1")
-    btn2.grid(row=1, column=1, padx=5, pady=5)
+    btn_increase = ctk.CTkButton(button_frame_konica_yellow, text="+", font=ctk.CTkFont(size=18), command=button_action.increase)
+    btn_increase.grid(row=1, column=0, padx=5, pady=5)   
 
-    btn3 = ctk.CTkButton(button_frame_konica_yellow, text="Entrada 2")
-    btn3.grid(row=2, column=0, padx=5, pady=5)
+    btn_decrease = ctk.CTkButton(button_frame_konica_yellow, text="-", font=ctk.CTkFont(size=18), ommand=button_action.decrement)
+    btn_decrease.grid(row=2, column=0, padx=5, pady=5)
 
-    btn4 = ctk.CTkButton(button_frame_konica_yellow, text="Saída 2")
-    btn4.grid(row=2, column=1, padx=5, pady=5)
+    btn_input = ctk.CTkButton(button_frame_konica_yellow, text="Entrada", fg_color="#006400", font=ctk.CTkFont(size=18))
+    btn_input.grid(row=1, column=1, padx=5, pady=5)
+
+    btn_output = ctk.CTkButton(button_frame_konica_yellow, text="Saída", fg_color="#8B0000", font=ctk.CTkFont(size=18))
+    btn_output.grid(row=2, column=1, padx=5, pady=5)
