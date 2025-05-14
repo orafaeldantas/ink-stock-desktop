@@ -6,6 +6,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import customtkinter as ctk
 from konica_cian import konica_cian_layout
 from konica_yellow import konica_yellow_layout
+from konica_magenta import konica_magenta_layout
+from konica_black import konica_black_layout
 
 
 def create_main_window():
@@ -23,12 +25,16 @@ def create_main_window():
 
     # Tab Konica
     tab_konica = tabview.add("Konica")
-    tab_konica.grid_rowconfigure((0, 1), weight=0)
+    tab_konica.grid_rowconfigure((0, 3), weight=0)
     tab_konica.grid_columnconfigure(0, weight=1)
     center_frame_konica_cian = ctk.CTkFrame(tab_konica, fg_color='transparent')
     center_frame_konica_cian.grid(row=0, column=0, sticky="")
     center_frame_konica_yellow = ctk.CTkFrame(tab_konica, fg_color='transparent')
     center_frame_konica_yellow.grid(row=1, column=0, sticky="")
+    center_frame_konica_magenta = ctk.CTkFrame(tab_konica, fg_color='transparent')
+    center_frame_konica_magenta.grid(row=2, column=0, sticky="")
+    center_frame_konica_black = ctk.CTkFrame(tab_konica, fg_color='transparent')
+    center_frame_konica_black.grid(row=3, column=0, sticky="")
 
     # Tab DX
     tab_dx = tabview.add("DX")
@@ -50,6 +56,12 @@ def create_main_window():
 
     #Yellow
     konica_yellow_layout(center_frame_konica_yellow)
+
+    #Magenta
+    konica_magenta_layout(center_frame_konica_magenta)
+
+    #Black
+    konica_black_layout(center_frame_konica_black)
     
     app.mainloop()
 
