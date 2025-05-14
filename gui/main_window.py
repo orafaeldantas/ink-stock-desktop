@@ -4,20 +4,18 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import customtkinter as ctk
-from konica_cian import konica_cian_layout
-from konica_yellow import konica_yellow_layout
-from konica_magenta import konica_magenta_layout
-from konica_black import konica_black_layout
+from gui.tab_konica import konica_cian_layout, konica_black_layout, konica_magenta_layout, konica_yellow_layout
+
 
 
 def create_main_window():
     ctk.set_appearance_mode("System")  # Opcional: "Light", "Dark", "System"
-    ctk.set_default_color_theme("blue")  # Pode ser "green", "dark-blue", etc.
+    ctk.set_default_color_theme("dark-blue")  # Pode ser "green", "dark-blue", etc.
 
     
     app = ctk.CTk()
     app.geometry("1200x800")
-    app.title("Layout em Aba")
+    app.title("Tinta PeP")
 
     # Criar o Tabview (as abas)
     tabview = ctk.CTkTabview(master=app)   
