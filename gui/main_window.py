@@ -9,12 +9,12 @@ from gui.tab_konica import konica_cian_layout, konica_black_layout, konica_magen
 
 
 def create_main_window():
-    ctk.set_appearance_mode("System")  # Opcional: "Light", "Dark", "System"
+    ctk.set_appearance_mode("Dark")  # Opcional: "Light", "Dark", "System"
     ctk.set_default_color_theme("dark-blue")  # Pode ser "green", "dark-blue", etc.
 
     
     app = ctk.CTk()
-    app.geometry("1200x800")
+    app.geometry("1200x900")
     app.title("Tinta PeP")
 
     # Criar o Tabview (as abas)
@@ -26,13 +26,13 @@ def create_main_window():
     tab_konica.grid_rowconfigure((0, 3), weight=0)
     tab_konica.grid_columnconfigure(0, weight=1)
     center_frame_konica_cian = ctk.CTkFrame(tab_konica, fg_color='transparent')
-    center_frame_konica_cian.grid(row=0, column=0, sticky="")
+    center_frame_konica_cian.grid(row=0, column=0, sticky="", pady=30)
     center_frame_konica_yellow = ctk.CTkFrame(tab_konica, fg_color='transparent')
-    center_frame_konica_yellow.grid(row=1, column=0, sticky="")
+    center_frame_konica_yellow.grid(row=1, column=0, sticky="", pady=30)
     center_frame_konica_magenta = ctk.CTkFrame(tab_konica, fg_color='transparent')
-    center_frame_konica_magenta.grid(row=2, column=0, sticky="")
+    center_frame_konica_magenta.grid(row=2, column=0, sticky="", pady=30)
     center_frame_konica_black = ctk.CTkFrame(tab_konica, fg_color='transparent')
-    center_frame_konica_black.grid(row=3, column=0, sticky="")
+    center_frame_konica_black.grid(row=3, column=0, sticky="", pady=30)
 
     # Tab DX
     tab_dx = tabview.add("DX")
