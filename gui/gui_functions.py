@@ -38,16 +38,14 @@ class ButtonAction:
 
     def input(self, id_models, id):
         actualy = get_paint_quantity_button(id_models, id)
-        if self.get_value() > actualy:
-            ...
-        else:            
-            update_quantity((actualy+self.get_value()), id)
-            if self.callback_update_label:
-                self.callback_update_label(get_paint_quantity(id_models, id))
+           
+        update_quantity((actualy+self.get_value()), id)
+        if self.callback_update_label:
+            self.callback_update_label(get_paint_quantity(id_models, id))
     
     def output(self, id_models, id):
         actualy = get_paint_quantity_button(id_models, id)
-        if self.get_value() < actualy:
+        if self.get_value() > actualy:
             ...
         else:            
             update_quantity((actualy-self.get_value()), id)
