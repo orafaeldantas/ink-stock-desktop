@@ -95,13 +95,16 @@ def konica_yellow_layout(center_frame_konica_yellow):
     label_konica_yellow = ctk.CTkLabel(center_frame_konica_yellow, text=get_paint_quantity(1, 1), font=ctk.CTkFont(size=font_label_stock, weight="bold"))
     label_konica_yellow.grid(row=0, column=1, padx=30)
 
+    def update_label(new_text):
+        label_konica_yellow.configure(text=new_text)
+
     button_frame_konica_yellow = ctk.CTkFrame(center_frame_konica_yellow, fg_color="transparent")
     button_frame_konica_yellow.grid(row=0, column=2, padx=10, sticky="e")    
 
     quantity_entry = ctk.CTkEntry(button_frame_konica_yellow, placeholder_text="0", font=ctk.CTkFont(size=18), justify="center")
     quantity_entry.grid(row=0, column=0,columnspan=2, padx=10, pady=(5, 10), sticky="ew")
 
-    button_action = ButtonAction(entry=quantity_entry)
+    button_action = ButtonAction(entry=quantity_entry, callback_update_label=update_label)
 
     btn_increase = ctk.CTkButton(button_frame_konica_yellow, text="+", font=ctk.CTkFont(size=18), command=button_action.increase)
     btn_increase.grid(row=1, column=0, padx=5, pady=5)   

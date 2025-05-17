@@ -16,6 +16,7 @@ class ButtonAction:
     entry: ctk.CTkEntry
     id: int = 0
     id_models: int = 0
+    callback_update_label: callable = None
 
     def get_value(self) -> int:
         try:
@@ -41,9 +42,18 @@ class ButtonAction:
             ...
         else:            
             update_quantity((actualy+self.get_value()), id)
-            konica_yellow_layout.label_konica_yellow.configure(
-            text=str(get_paint_quantity(id_models, id))
-        )
+            if self.callback_update_label:
+                self.callback_update_label(get_paint_quantity(id_models, id))
+    
+    def output(self, id_models, id):
+        actualy = get_paint_quantity_button(id_models, id)
+        if self.get_value() > actualy:
+            ...
+        else:            
+            update_quantity((actualy-self.get_value()), id)
+            if self.callback_update_label:
+                self.callback_update_label(get_paint_quantity(id_models, id))
+            
             
             
 
