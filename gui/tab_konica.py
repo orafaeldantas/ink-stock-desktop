@@ -1,6 +1,6 @@
 
 import customtkinter as ctk
-from gui_functions import ButtonAction, get_paint_quantity
+from gui_functions import ButtonAction, get_paint_quantity, get_paint_quantity_button
 
 
 font_label_stock = 90
@@ -92,7 +92,7 @@ def konica_yellow_layout(center_frame_konica_yellow):
     circle_canvas_yellow.grid(row=0, column=0, padx=10)
     circle_canvas_yellow.create_oval(5, 5, 65, 65, fill="#FFFF00")
 
-    label_konica_yellow = ctk.CTkLabel(center_frame_konica_yellow, text=get_paint_quantity(1, 1), font=ctk.CTkFont(size=font_label_stock, weight="bold"))
+    label_konica_yellow = ctk.CTkLabel(center_frame_konica_yellow, text=get_paint_quantity_button(1, 1), font=ctk.CTkFont(size=font_label_stock, weight="bold"))
     label_konica_yellow.grid(row=0, column=1, padx=30)
 
     button_frame_konica_yellow = ctk.CTkFrame(center_frame_konica_yellow, fg_color="transparent")
@@ -109,7 +109,7 @@ def konica_yellow_layout(center_frame_konica_yellow):
     btn_decrease = ctk.CTkButton(button_frame_konica_yellow, text="-", font=ctk.CTkFont(size=18), command=button_action.decrement)
     btn_decrease.grid(row=2, column=0, padx=5, pady=5)
 
-    btn_input = ctk.CTkButton(button_frame_konica_yellow, text="Entrada", fg_color="#006400", font=ctk.CTkFont(size=18))
+    btn_input = ctk.CTkButton(button_frame_konica_yellow, text="Entrada", fg_color="#006400", font=ctk.CTkFont(size=18), command=lambda: button_action.output(1, 1))
     btn_input.grid(row=1, column=1, padx=5, pady=5)
 
     btn_output = ctk.CTkButton(button_frame_konica_yellow, text="Saída", fg_color="#8B0000", font=ctk.CTkFont(size=18))
