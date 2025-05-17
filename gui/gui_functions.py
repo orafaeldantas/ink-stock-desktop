@@ -36,7 +36,7 @@ class ButtonAction:
         value = self.get_value()
         self.set_value(max(value - 1, 0))
 
-    def output(self, id_models, id):
+    def input(self, id_models, id):
         actualy = get_paint_quantity_button(id_models, id)
         if self.get_value() > actualy:
             ...
@@ -47,7 +47,7 @@ class ButtonAction:
     
     def output(self, id_models, id):
         actualy = get_paint_quantity_button(id_models, id)
-        if self.get_value() > actualy:
+        if self.get_value() < actualy:
             ...
         else:            
             update_quantity((actualy-self.get_value()), id)

@@ -112,8 +112,8 @@ def konica_yellow_layout(center_frame_konica_yellow):
     btn_decrease = ctk.CTkButton(button_frame_konica_yellow, text="-", font=ctk.CTkFont(size=18), command=button_action.decrement)
     btn_decrease.grid(row=2, column=0, padx=5, pady=5)
 
-    btn_input = ctk.CTkButton(button_frame_konica_yellow, text="Entrada", fg_color="#006400", font=ctk.CTkFont(size=18), command=lambda: button_action.output(1, 1))
+    btn_input = ctk.CTkButton(button_frame_konica_yellow, text="Entrada", fg_color="#006400", font=ctk.CTkFont(size=18), command=lambda: button_action.input(1, 1))
     btn_input.grid(row=1, column=1, padx=5, pady=5)
 
-    btn_output = ctk.CTkButton(button_frame_konica_yellow, text="Saída", fg_color="#8B0000", font=ctk.CTkFont(size=18))
+    btn_output = ctk.CTkButton(button_frame_konica_yellow, text="Saída", fg_color="#8B0000", font=ctk.CTkFont(size=18), command=lambda: button_action.output(1, 1))
     btn_output.grid(row=2, column=1, padx=5, pady=5)
