@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from services.stock_service import list_colors_by_model, update_quantity
 
 
+
 @dataclass
 class ButtonAction:
     entry: ctk.CTkEntry
@@ -40,6 +41,9 @@ class ButtonAction:
             ...
         else:            
             update_quantity((actualy+self.get_value()), id)
+            konica_yellow_layout.label_konica_yellow.configure(
+            text=str(get_paint_quantity(id_models, id))
+        )
             
             
 
