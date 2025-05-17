@@ -8,15 +8,21 @@ DB_PATH = os.path.join(os.path.dirname(__file__), '../database/ink_stock.db')
 def connect():
     return sqlite3.connect(DB_PATH)
 
-def list_colors_by_model(id_models):
+def list_colors_by_model(id_models, id):
     con = connect()
     cur = con.cursor()
+    # cur.execute("""
+    #     SELECT c.id, c.name, s.amount
+    #     FROM colors c
+    #     LEFT JOIN stock s ON s.id_colors = c.id
+    #     WHERE c.id_models = ?
+    # """, (id_models,))
     cur.execute("""
-        SELECT c.id, c.name, s.amount
-        FROM colors c
-        LEFT JOIN stock s ON s.id_colors = c.id
-        WHERE c.id_models = ? 
-    """, (id_models,))
+         SELECT s.amount
+         FROM colors c
+         LEFT JOIN stock s ON s.id_colors = c.id
+         WHERE c.id_models = ? and c.id = ?
+    """, (id_models, id))
     data = cur.fetchall()
     con.close()
     return data

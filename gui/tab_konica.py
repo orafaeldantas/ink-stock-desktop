@@ -1,6 +1,6 @@
 
 import customtkinter as ctk
-from gui_functions import ButtonAction
+from gui_functions import ButtonAction, get_paint_quantity
 
 
 font_label_stock = 90
@@ -92,7 +92,7 @@ def konica_yellow_layout(center_frame_konica_yellow):
     circle_canvas_yellow.grid(row=0, column=0, padx=10)
     circle_canvas_yellow.create_oval(5, 5, 65, 65, fill="#FFFF00")
 
-    label_konica_yellow = ctk.CTkLabel(center_frame_konica_yellow, text="00", font=ctk.CTkFont(size=font_label_stock, weight="bold"))
+    label_konica_yellow = ctk.CTkLabel(center_frame_konica_yellow, text=get_paint_quantity(1, 1), font=ctk.CTkFont(size=font_label_stock, weight="bold"))
     label_konica_yellow.grid(row=0, column=1, padx=30)
 
     button_frame_konica_yellow = ctk.CTkFrame(center_frame_konica_yellow, fg_color="transparent")
