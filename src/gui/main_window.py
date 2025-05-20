@@ -4,10 +4,17 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import customtkinter as ctk
+import tkinter as tk 
 from gui.tab_konica import konica_cian_layout, konica_black_layout, konica_magenta_layout, konica_yellow_layout
 from gui.tab_dx import dx_cian_layout, dx_black_layout, dx_magenta_layout, dx_yellow_layout
 
-
+def center_window(app, width, height):
+    app.update_idletasks()
+    screen_width = app.winfo_screenwidth()
+    screen_height = app.winfo_screenheight()
+    x = int((screen_width - width) / 2)
+    y = int((screen_height - height) / 2)
+    app.geometry(f"{width}x{height}+{x}+{y}")
 
 def create_main_window():
     ctk.set_appearance_mode("Dark")
@@ -15,7 +22,12 @@ def create_main_window():
 
     
     app = ctk.CTk()
-    app.geometry("1200x900")
+
+    window_width = 1200
+    window_height = 900
+
+    center_window(app, window_width, window_height)
+
     app.resizable(False, False)
     app.title("Tinta PeP")
 
