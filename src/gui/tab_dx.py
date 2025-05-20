@@ -1,6 +1,11 @@
 
+import sys
+import os
+
+
+
 import customtkinter as ctk
-from gui_functions import ButtonAction, get_paint_quantity
+from gui.gui_functions import ButtonAction, get_paint_quantity
 
 
 font_label_stock = 90

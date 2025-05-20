@@ -9,12 +9,13 @@ from gui.tab_konica import konica_cian_layout, konica_black_layout, konica_magen
 
 
 def create_main_window():
-    ctk.set_appearance_mode("Dark")  # Opcional: "Light", "Dark", "System"
-    ctk.set_default_color_theme("dark-blue")  # Pode ser "green", "dark-blue", etc.
+    ctk.set_appearance_mode("Dark")
+    ctk.set_default_color_theme("dark-blue")  
 
     
     app = ctk.CTk()
     app.geometry("1200x900")
+    app.resizable(False, False)
     app.title("Tinta PeP")
 
     # Criar o Tabview (as abas)
