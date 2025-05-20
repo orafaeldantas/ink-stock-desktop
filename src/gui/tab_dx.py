@@ -1,16 +1,11 @@
 
-import sys
-import os
-
-
-
 import customtkinter as ctk
 from gui.gui_functions import ButtonAction, get_paint_quantity
 
 
 font_label_stock = 90
 
-def konica_black_layout(center_frame_dx_black):
+def dx_black_layout(center_frame_dx_black):
     circle_canvas_black = ctk.CTkCanvas(center_frame_dx_black, width=70, height=70, bg="white", highlightthickness=0)
     circle_canvas_black.grid(row=0, column=0, padx=10)
     circle_canvas_black.create_oval(5, 5, 65, 65, fill="#000000")
@@ -40,7 +35,7 @@ def konica_black_layout(center_frame_dx_black):
         text="Entrada", 
         fg_color="#006400", 
         font=ctk.CTkFont(size=18), 
-        command=lambda: button_action.input(1, 4),
+        command=lambda: button_action.input(2, 8),
         hover_color="#228B22"
     )
     btn_input.grid(row=1, column=1, padx=5, pady=5)
@@ -49,13 +44,13 @@ def konica_black_layout(center_frame_dx_black):
         button_frame_dx_black, 
         text="Saída", fg_color="#8B0000", 
         font=ctk.CTkFont(size=18), 
-        command=lambda: button_action.output(1, 4),
+        command=lambda: button_action.output(2, 8),
         hover_color="#9B111E"
     )
     btn_output.grid(row=2, column=1, padx=5, pady=5)
 
 
-def konica_cian_layout(center_frame_dx_cian):
+def dx_cian_layout(center_frame_dx_cian):
     circle_canvas_cian = ctk.CTkCanvas(center_frame_dx_cian, width=70, height=70, bg="white", highlightthickness=0)
     circle_canvas_cian.grid(row=0, column=0, padx=10)
     circle_canvas_cian.create_oval(5, 5, 65, 65, fill="#00BFFF")
@@ -85,7 +80,7 @@ def konica_cian_layout(center_frame_dx_cian):
         text="Entrada", 
         fg_color="#006400", 
         font=ctk.CTkFont(size=18), 
-        command=lambda: button_action.input(1, 3),
+        command=lambda: button_action.input(2, 7),
         hover_color="#228B22"
     )
     btn_input.grid(row=1, column=1, padx=5, pady=5)
@@ -94,13 +89,13 @@ def konica_cian_layout(center_frame_dx_cian):
         button_frame_dx_cian, 
         text="Saída", fg_color="#8B0000", 
         font=ctk.CTkFont(size=18), 
-        command=lambda: button_action.output(1, 3),
+        command=lambda: button_action.output(2, 7),
         hover_color="#9B111E"
     )
     btn_output.grid(row=2, column=1, padx=5, pady=5)
 
 
-def konica_magenta_layout(center_frame_dx_magenta):
+def dx_magenta_layout(center_frame_dx_magenta):
     circle_canvas_magenta = ctk.CTkCanvas(center_frame_dx_magenta, width=70, height=70, bg="white", highlightthickness=0)
     circle_canvas_magenta.grid(row=0, column=0, padx=10)
     circle_canvas_magenta.create_oval(5, 5, 65, 65, fill="#8B008B")
@@ -130,7 +125,7 @@ def konica_magenta_layout(center_frame_dx_magenta):
         text="Entrada", 
         fg_color="#006400", 
         font=ctk.CTkFont(size=18), 
-        command=lambda: button_action.input(1, 2),
+        command=lambda: button_action.input(2, 6),
         hover_color="#228B22"
     )
     btn_input.grid(row=1, column=1, padx=5, pady=5)
@@ -139,13 +134,13 @@ def konica_magenta_layout(center_frame_dx_magenta):
         button_frame_dx_magenta, 
         text="Saída", fg_color="#8B0000", 
         font=ctk.CTkFont(size=18), 
-        command=lambda: button_action.output(1, 2),
+        command=lambda: button_action.output(2, 6),
         hover_color="#9B111E"
     )
     btn_output.grid(row=2, column=1, padx=5, pady=5)
 
 
-def konica_yellow_layout(center_frame_dx_yellow):
+def dx_yellow_layout(center_frame_dx_yellow):
     circle_canvas_yellow = ctk.CTkCanvas(center_frame_dx_yellow, width=70, height=70, bg="white", highlightthickness=0)
     circle_canvas_yellow.grid(row=0, column=0, padx=10)
     circle_canvas_yellow.create_oval(5, 5, 65, 65, fill="#FFFF00")
@@ -175,7 +170,7 @@ def konica_yellow_layout(center_frame_dx_yellow):
         text="Entrada", 
         fg_color="#006400", 
         font=ctk.CTkFont(size=18), 
-        command=lambda: button_action.input(1, 1),
+        command=lambda: button_action.input(2, 5),
         hover_color="#228B22"
     )
     btn_input.grid(row=1, column=1, padx=5, pady=5)
@@ -184,7 +179,7 @@ def konica_yellow_layout(center_frame_dx_yellow):
         button_frame_dx_yellow, 
         text="Saída", fg_color="#8B0000", 
         font=ctk.CTkFont(size=18), 
-        command=lambda: button_action.output(1, 1),
+        command=lambda: button_action.output(2, 5),
         hover_color="#9B111E"
     )
     btn_output.grid(row=2, column=1, padx=5, pady=5)

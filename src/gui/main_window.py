@@ -5,6 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import customtkinter as ctk
 from gui.tab_konica import konica_cian_layout, konica_black_layout, konica_magenta_layout, konica_yellow_layout
+from gui.tab_dx import dx_cian_layout, dx_black_layout, dx_magenta_layout, dx_yellow_layout
 
 
 
@@ -75,6 +76,20 @@ def create_main_window():
 
     #Black
     konica_black_layout(center_frame_konica_black)
+
+    # === DX ==
+
+    #Cian
+    dx_cian_layout(center_frame_dx_cian)
+
+    #Yellow
+    dx_yellow_layout(center_frame_dx_yellow)
+
+    #Magenta
+    dx_magenta_layout(center_frame_dx_magenta)
+
+    #Black
+    dx_black_layout(center_frame_dx_black)
     
     app.mainloop()
 
