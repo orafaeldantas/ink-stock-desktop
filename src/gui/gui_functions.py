@@ -1,12 +1,11 @@
 
-import sys
-import os
-
-
 
 import customtkinter as ctk
 from dataclasses import dataclass
 from services.stock_service import list_colors_by_model, update_quantity
+from services.log_service import save_log_entry
+from services.log_model import StockLog
+from datetime import datetime
 
 
 
@@ -16,6 +15,7 @@ class ButtonAction:
     id: int = 0
     id_models: int = 0
     callback_update_label: callable = None
+    log_action: StockLog
 
     def get_value(self) -> int:
         try:
@@ -54,8 +54,7 @@ class ButtonAction:
             
             
             
-
-
+            
 def get_paint_quantity(id_models, id):
     color_amount = list_colors_by_model(id_models, id)
     color_amount = color_amount if color_amount is not None else 0
@@ -65,3 +64,12 @@ def get_paint_quantity_button(id_models, id):
     color_amount = list_colors_by_model(id_models, id)
     color_amount = color_amount if color_amount is not None else 0
     return color_amount[0][0]
+
+
+log = StockLog(
+    timestamp=datetime.now(),
+    color=None,
+    model=None,
+    movement=None,
+    quantity=None
+)
