@@ -1,9 +1,4 @@
 
-import sys
-import os
-
-
-
 import customtkinter as ctk
 from gui.gui_functions import ButtonAction, get_paint_quantity
 
