@@ -1,6 +1,6 @@
 
 import customtkinter as ctk
-from gui.gui_functions import ButtonAction, get_paint_quantity
+from gui.gui_functions import ButtonAction, get_paint_quantity, log
 
 
 font_label_stock = 90
@@ -181,5 +181,6 @@ def dx_yellow_layout(center_frame_dx_yellow):
         font=ctk.CTkFont(size=18), 
         command=lambda: button_action.output(2, 5),
         hover_color="#9B111E"
+              
     )
     btn_output.grid(row=2, column=1, padx=5, pady=5)
