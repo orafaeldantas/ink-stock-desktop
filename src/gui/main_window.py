@@ -105,6 +105,13 @@ def create_main_window():
     center_frame_uv_mesa_black = ctk.CTkFrame(tab_uv_mesa, fg_color='transparent')
     center_frame_uv_mesa_black.grid(row=3, column=0, sticky="", pady=30)
 
+    log_tab = tabview.add("Logs")
+    
+    center_frame_log_tab = ctk.CTkFrame(log_tab, fg_color='transparent')
+    center_frame_uv_mesa_cian.grid(row=0, column=0, sticky="", pady=30)
+
+    
+
     
 
     for tab_button in tabview._segmented_button._buttons_dict.values():

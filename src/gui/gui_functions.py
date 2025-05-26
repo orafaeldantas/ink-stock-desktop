@@ -6,7 +6,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import customtkinter as ctk
 from dataclasses import dataclass
-from services.stock_service import list_colors_by_model, update_quantity
+from services.stock_service import list_colors_by_model, update_quantity, list_model_name_and_color
 from services.log_service import save_log_entry
 from services.log_model import StockLog
 from datetime import datetime
@@ -54,10 +54,11 @@ class ButtonAction:
             update_quantity((actualy-self.get_value()), id)
             if self.callback_update_label:
                 self.callback_update_label(get_paint_quantity(id_models, id))
+            color_name, model_name = list_model_name_and_color(id_models, id)
             log = StockLog(
                 timestamp=datetime.now(),
-                color=None,
-                model=None,
+                color=color_name,
+                model=model_name,
                 movement="Saída",
                 quantity=self.get_value()
             )

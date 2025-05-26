@@ -40,10 +40,15 @@ def update_quantity(new_amount, id_colors):
     con.close()
 
 def list_model_name_and_color(id_models, id):
-   cur.execute("""
-        SELECT colors.name, models.name
-        FROM colors, models
-        WHERE colors.id = ? and models.id = ?
+    con = connect()
+    cur = con.cursor()
+    cur.execute("""
+         SELECT colors.name, models.name
+         FROM colors, models
+         WHERE colors.id = ? and models.id = ?
     """, (id_models, id))
+    data = cur.fetchall()
+    con.close()
+    return data
     
     
