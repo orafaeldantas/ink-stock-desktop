@@ -9,6 +9,7 @@ from gui.tab_konica import konica_cian_layout, konica_black_layout, konica_magen
 from gui.tab_dx import dx_cian_layout, dx_black_layout, dx_magenta_layout, dx_yellow_layout
 from gui.tab_uv_rolo import uv_rolo_cian_layout, uv_rolo_black_layout, uv_rolo_magenta_layout, uv_rolo_yellow_layout
 from gui.tab_uv_mesa import uv_mesa_cian_layout, uv_mesa_black_layout, uv_mesa_magenta_layout, uv_mesa_yellow_layout
+from gui.tab_log import log_tab_layout
 
 def center_window(app, width, height):
     app.update_idletasks()
@@ -108,11 +109,8 @@ def create_main_window():
     log_tab = tabview.add("Logs")
     
     center_frame_log_tab = ctk.CTkFrame(log_tab, fg_color='transparent')
-    center_frame_uv_mesa_cian.grid(row=0, column=0, sticky="", pady=30)
-
-    
-
-    
+    center_frame_log_tab.grid(row=0, column=0, sticky="", pady=30)
+  
 
     for tab_button in tabview._segmented_button._buttons_dict.values():
         tab_button.configure(font=("Arial", 30))
@@ -173,10 +171,14 @@ def create_main_window():
 
     #Black
     uv_mesa_black_layout(center_frame_uv_mesa_black)
+
+    log_tab_layout(center_frame_log_tab)
     
     app.mainloop()
 
 
 if __name__ == "__main__":
     create_main_window()
+
+    
 

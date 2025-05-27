@@ -1,0 +1,16 @@
+[
+    {
+        "timestamp": "2025-05-26 20:41:17.817623",
+        "color": "Azul Teste",
+        "model": "Modelo Teste",
+        "movement": "Saída",
+        "quantity": 5
+    },
+    {
+        "timestamp": "2025-05-26 21:48:06.488827",
+        "color": "Ciano",
+        "model": "Konica",
+        "movement": "Saída",
+        "quantity": 2
+    }
+]
