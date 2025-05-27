@@ -9,6 +9,10 @@ from services.log_service import load_logs
 
 
 def log_tab_layout(center_frame_log_tab):
+
+    for widget in center_frame_log_tab.winfo_children():
+        widget.destroy()
+
     log_textbox = ctk.CTkTextbox(center_frame_log_tab, width=750, height=550)
     log_textbox.pack(padx=10, pady=10)
 

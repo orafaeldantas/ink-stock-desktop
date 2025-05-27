@@ -11,6 +11,8 @@ from gui.tab_uv_rolo import uv_rolo_cian_layout, uv_rolo_black_layout, uv_rolo_m
 from gui.tab_uv_mesa import uv_mesa_cian_layout, uv_mesa_black_layout, uv_mesa_magenta_layout, uv_mesa_yellow_layout
 from gui.tab_log import log_tab_layout
 
+previous_tab = ""
+
 def center_window(app, width, height):
     app.update_idletasks()
     screen_width = app.winfo_screenwidth()
@@ -170,9 +172,20 @@ def create_main_window():
     uv_mesa_magenta_layout(center_frame_uv_mesa_magenta)
 
     #Black
-    uv_mesa_black_layout(center_frame_uv_mesa_black)
+    uv_mesa_black_layout(center_frame_uv_mesa_black)   
+    
+    def check_tab_log():
+        global previous_tab
+        current_tab = tabview.get()
 
-    log_tab_layout(center_frame_log_tab)
+        if current_tab != previous_tab:
+            previous_tab = current_tab
+            if current_tab == "Logs":
+                log_tab_layout(center_frame_log_tab)
+
+        app.after(500, check_tab_log)
+    
+    check_tab_log()
     
     app.mainloop()
 
