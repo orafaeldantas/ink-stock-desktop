@@ -111,7 +111,7 @@ def create_main_window():
     log_tab = tabview.add("Logs")
     
     center_frame_log_tab = ctk.CTkFrame(log_tab, fg_color='transparent')
-    center_frame_log_tab.grid(row=0, column=0, sticky="", pady=30)
+    center_frame_log_tab.grid(row=0, column=0, sticky="", pady=30, padx=192)
   
 
     for tab_button in tabview._segmented_button._buttons_dict.values():

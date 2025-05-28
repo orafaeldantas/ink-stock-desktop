@@ -41,10 +41,30 @@ class ButtonAction:
 
     def input(self, id_models, id):
         actualy = get_paint_quantity_button(id_models, id)
+        quantity_to_entry = self.get_value()
            
         update_quantity((actualy+self.get_value()), id)
         if self.callback_update_label:
             self.callback_update_label(get_paint_quantity(id_models, id))
+
+        try:
+                model_name = list_model(id_models)
+                color_name = list_color(id)
+                
+                log = StockLog(
+                    timestamp=datetime.now(),
+                    color=color_name[0][0],
+                    model=model_name[0][0],
+                    movement="Entrada",
+                    quantity=quantity_to_entry
+                )
+                save_log_entry(log)               
+                
+        except Exception as e:
+                print(f"[ERRO] Falha ao criar/salvar log: {e}")
+                import traceback
+                traceback.print_exc()
+        self.set_value(0) 
         
     
     def output(self, id_models, id):
@@ -53,9 +73,8 @@ class ButtonAction:
         quantity_to_remove = self.get_value()
         
         if quantity_to_remove > actualy:
-            print(f"[WARNING] Tentativa de remover {quantity_to_remove}, mas só tem {actualy}")
-            # Aqui você pode adicionar uma mensagem de erro para o usuário
             pass
+
         else:
             update_quantity((actualy - quantity_to_remove), id)
             if self.callback_update_label:
@@ -79,7 +98,7 @@ class ButtonAction:
                 print(f"[ERRO] Falha ao criar/salvar log: {e}")
                 import traceback
                 traceback.print_exc()            
-            
+        self.set_value(0)     
                       
 def get_paint_quantity(id_models, id):
     color_amount = list_colors_by_model(id_models, id)

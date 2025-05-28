@@ -24,6 +24,7 @@ def log_tab_layout(center_frame_log_tab):
             for key, value in log.items():
                 log_textbox.insert("end", f"{key}: {value}\n")
             log_textbox.insert("end", "\n")
+        log_textbox.see(ctk.END)
     else:
         log_textbox.insert("end", "Nenhum log encontrado.")
     
